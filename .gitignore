@@ -1,0 +1,14 @@
+Debug
+.vs
+build
+out
+cmake-build-debug
+
+*.user
+*.json
+*.code-workspace
+*.exe
+*.out
+*.o
+*.kdev4
+*.idea
