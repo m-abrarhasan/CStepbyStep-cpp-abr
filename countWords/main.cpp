@@ -9,7 +9,7 @@ size_t countWords(std::string str) {
   str.append("  ");
 
   const size_t lenstr = str.length();
-  for (int i = 1; i < lenstr; ++i) {
+  for (size_t i = 1; i < lenstr; ++i) {
     if (' ' == str.at(i) && ' ' != str.at(i - 1)) {
       words++;
     }
@@ -21,14 +21,9 @@ size_t countWords(std::string str) {
 // Main
 ///////////////////////////////////////////////////////
 int main() {
-  std::string msg;
+  std::string str = "hello";
 
-  std::cout << "Your String : ";
-  std::getline(std::cin, msg);
-
-  size_t words = countWords(msg);
-
-  std::cout << words << std::endl;
+  std::cout << str.substr(1);
 
   return 0;
 }
