@@ -1,6 +1,7 @@
 Debug
 .vs
 build
+build*
 out
 cmake-build-debug
 
