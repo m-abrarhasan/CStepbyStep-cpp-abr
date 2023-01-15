@@ -24,7 +24,6 @@ int main()
     {
         return 1;
     }
-
     return 0;
 }
 
@@ -47,7 +46,6 @@ std::string caeser(std::string &s, int key)
 
     for (int i = 0; i < s.length(); i++)
     {
-
         char inC = s.at(i);
         inC = toupper(inC);
 
