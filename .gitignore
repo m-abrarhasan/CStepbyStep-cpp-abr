@@ -4,6 +4,7 @@ build
 build*
 out
 cmake-build-debug
+.cache
 
 *.user
 *.json
