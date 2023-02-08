@@ -1,0 +1,6 @@
+﻿---
+BasedOnStyle: WebKit
+AccessModifierOffset: '0'
+AlignConsecutiveAssignments: 'true'
+
+...
