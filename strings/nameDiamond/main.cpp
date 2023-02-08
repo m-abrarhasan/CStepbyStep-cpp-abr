@@ -2,38 +2,40 @@
 #include <iostream>
 #include <string>
 
-void nameDiamond(std::string str) {
+void nameDiamond(std::string str)
+{
 
-  const size_t strlen = str.length();
+    const size_t strlen = str.length();
 
-  std::string line(strlen, ' ');
-  std::string block;
-  for (size_t i = 0; i < strlen; i++) {
+    std::string line(strlen, ' ');
+    std::string block;
+    for (size_t i = 0; i < strlen; i++) {
 
-    for (size_t j = 0; j <= i; j++) {
-      line[j] = str[j];
+        for (size_t j = 0; j <= i; j++) {
+            line[j] = str[j];
+        }
+        block.append(line + "\n");
     }
-    block.append(line + "\n");
-  }
 
-  line = str;
-  for (size_t i = 0; i < strlen; i++) {
+    line = str;
+    for (size_t i = 0; i < strlen; i++) {
 
-    for (size_t j = 0; j <= i; j++) {
-      line[j] = ' ';
+        for (size_t j = 0; j <= i; j++) {
+            line[j] = ' ';
+        }
+        block.append(line + "\n");
     }
-    block.append(line + "\n");
-  }
 
-  block.pop_back();
-  std::cout << block;
+    block.pop_back();
+    std::cout << block;
 }
 
 // Main
 ///////////////////////////////////////////////////////
-int main() {
+int main()
+{
 
-  nameDiamond("marty");
+    nameDiamond("marty");
 
-  return 0;
+    return 0;
 }

@@ -5,7 +5,7 @@
 bool isAllVowels(std::string str)
 {
     bool isAllVowels = true;
-    const char vowels[5] = {'A', 'E', 'I', 'O', 'U'};
+    const char vowels[5] = { 'A', 'E', 'I', 'O', 'U' };
 
     for (int i = 0; i < str.length(); ++i) {
 
@@ -32,7 +32,8 @@ int main()
     std::string line;
     std::getline(std::cin, line);
 
-    std::cout << '\n' << isAllVowels(line);
+    std::cout << '\n'
+              << isAllVowels(line);
 
     return 0;
 }

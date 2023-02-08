@@ -2,32 +2,34 @@
 #include <iostream>
 #include <string>
 
-std::string removeAll(std::string str, const char &t) {
+std::string removeAll(std::string str, const char& t)
+{
 
-  auto strlen = str.length();
+    auto strlen = str.length();
 
-  size_t i = 0;
-  while (i < strlen) {
+    size_t i = 0;
+    while (i < strlen) {
 
-    std::cout << str[i] << " | " << t << "   " << strlen << "\n";
-    if (str.at(i) == t) {
+        std::cout << str[i] << " | " << t << "   " << strlen << "\n";
+        if (str.at(i) == t) {
 
-      str.erase(i, 1);
-      strlen--;
+            str.erase(i, 1);
+            strlen--;
 
-    } else
-      i++;
-  }
+        } else
+            i++;
+    }
 
-  return str;
+    return str;
 }
 
 // Main
 ///////////////////////////////////////////////////////
-int main() {
+int main()
+{
 
-  std::string msg = removeAll("---0---", '-');
+    std::string msg = removeAll("---0---", '-');
 
-  std::cout << msg;
-  return 0;
+    std::cout << msg;
+    return 0;
 }

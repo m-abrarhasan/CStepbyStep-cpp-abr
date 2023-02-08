@@ -5,7 +5,7 @@
 size_t dnaErrors(std::string a, std::string b)
 {
 
-    size_t errors = {0};
+    size_t errors = { 0 };
 
     if (a.length() > b.length()) {
 
@@ -53,9 +53,10 @@ size_t dnaErrors(std::string a, std::string b)
 
 // Main
 ///////////////////////////////////////////////////////
-int main() {
+int main()
+{
 
-  dnaErrors("GGGA-GAATCTCTGGACT", "CTCTACTTA-AGACCGGTACAGG");
+    dnaErrors("GGGA-GAATCTCTGGACT", "CTCTACTTA-AGACCGGTACAGG");
 
-  return 0;
+    return 0;
 }
