@@ -1,59 +1,59 @@
-#include <algorithm>
 #include <fstream>
 #include <iostream>
+#include <map>
+#include <set>
 #include <string>
 #include <unordered_map>
+#include <utility>
 #include <vector>
 
-std::string
-coolest(const std::string& path)
+std::string coolest(const std::string& path)
 {
+    std::pair<std::string, size_t> coolest = { "", 0 };
+
     std::fstream file(path);
+    if (file.is_open()) {
 
-    std::string name_a, name_b;
-    std::unordered_map<std::string, size_t> followers;
-    std::unordered_map<std::string, std::vector<std::string>> followees;
+        std::map<std::string, std::set<std::string>> accounts;
+        std::string name;
+        std::string follower;
 
-    while (file >> name_a >> name_b) {
+        while (file >> follower >> name) {
 
-        followers[name_b]++;
-        followees[name_b].push_back(name_a);
-    }
+            if (accounts.count(name)) {
+                accounts.at(name).insert(follower);
 
-    std::string coolest;
-    long mostPopular = -1;
-    for (const auto& pair : followees) {
-
-        const auto& user = pair.first;
-        const auto& flist = pair.second;
-
-        long popularity = 0;
-        for (const auto& name : flist) {
-
-            popularity += followers[name];
+            } else {
+                accounts.insert(std::make_pair(name, std::set<std::string> { follower }));
+            }
         }
-        if (popularity > mostPopular) {
+        file.close();
 
-            coolest = user;
-            mostPopular = popularity;
+        for (const auto& [id, followers] : accounts) {
 
-        } else if (popularity == mostPopular) {
-            coolest = std::min(coolest, user);
+            size_t sum = 0;
+            for (const auto& f : followers) {
+
+                if (accounts.count(f)) {
+                    sum += accounts.at(f).size();
+                }
+            }
+            if (sum > coolest.second) {
+                coolest.second = sum;
+                coolest.first  = id;
+
+            } else if (sum == coolest.second && id > coolest.first) {
+                coolest.second = sum;
+                coolest.first  = id;
+            }
         }
     }
-    return coolest;
+    return coolest.first;
 }
 
-///////////// Main /////////////////
 int main(int, char**)
 {
-    // std::map<std::string, size_t> popular{ { "marty", 20 }, { "arty", 10 } };
-    // for (const auto& [name, follower] : popular) {
-
-    //   std::cout << name << " : " << follower << "\n";
-    // }
-    // std::cout << popular["marty"] << "\n";
-
-    std::cout << coolest("../../../input.txt");
+    auto var = coolest("../input.txt");
+    std::cout << var;
     return 0;
 }
