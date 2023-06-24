@@ -1,5 +1,12 @@
-﻿---
-BasedOnStyle: Webkit
-AccessModifierOffset: '0'
-AlignConsecutiveAssignments: 'true'
-...
+BasedOnStyle: Mozilla
+AlignAfterOpenBracket: DontAlign
+AlignConsecutiveDeclarations: false
+AlignEscapedNewlines: Left
+AllowShortFunctionsOnASingleLine: false
+AlwaysBreakAfterDefinitionReturnType: None
+AlwaysBreakAfterReturnType: None
+BinPackArguments: true
+BinPackParameters: true
+ColumnLimit: 80
+IndentWidth: 4
+PointerAlignment: Right
